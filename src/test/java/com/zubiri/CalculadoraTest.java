@@ -10,7 +10,8 @@ public class CalculadoraTest {
     @Test
      public void sumaTest(){
         int resultado = calc.suma(2,3);
-        assertEquals(5, resultado, "La suma de 2 + 3 deberia ser 5");
+        assertEquals(6, resultado,
+        "La suma de 2 + 3 deberia ser 6");
      }
      
      @Test 
