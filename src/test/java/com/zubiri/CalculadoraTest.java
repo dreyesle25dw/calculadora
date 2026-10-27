@@ -24,7 +24,7 @@ public class CalculadoraTest {
      @Test 
      public void multiplicacionTest(){
         int resultado = calc.multiplicacion(5,5);
-        assertEquals(26,resultado,
+        assertEquals(25,resultado,
         "la multiplicacion de 5 * 5 deberia ser 25");
      }
 
