@@ -1,7 +1,11 @@
+
 package com.zubiri;
 
 import java.util.Objects;
 
+/**
+ * Representa a un alumno.
+ */
 public class Alumno {
 
     private String id;
@@ -9,32 +13,87 @@ public class Alumno {
     private boolean activo;
     private int[] notas;
 
-    public Alumno(String id, String nombre, boolean activo, int[] notas) {
+    /**
+     * Construye un alumno.
+     *
+     * @param id identificador del alumno
+     * @param nombre nombre del alumno
+     * @param activo estado del alumno
+     * @param notas notas del alumno
+     */
+    public Alumno(final String id, final String nombre,
+            final boolean activo, final int[] notas) {
         this.id = id;
-        setNombre(nombre); // Usamos el setter para pasar la validación
+        setNombre(nombre);
         this.activo = activo;
         this.notas = notas;
     }
 
-    public void setNombre(String nombre) {
+    /**
+     * Modifica el nombre del alumno.
+     *
+     * @param nombre nuevo nombre
+     */
+    public final void setNombre(final String nombre) {
         if (nombre == null) {
-            throw new IllegalArgumentException("El nombre no puede ser nulo (null)");
+            throw new IllegalArgumentException(
+                    "El nombre no puede ser nulo (null)");
         }
         this.nombre = nombre;
     }
 
-    public String getId() { return id; }
-    public boolean isActivo() { return activo; }
-    public int[] getNotas() { return notas; }
+    /**
+     * Obtiene el identificador.
+     *
+     * @return identificador
+     */
+    public final String getId() {
+        return id;
+    }
 
-    // Imprescindible para comparar objetos:
-    // Diremos que dos alumnos son IGUALES si tienen el mismo ID.
+    /**
+     * Comprueba si el alumno está activo.
+     *
+     * @return estado del alumno
+     */
+    public final boolean isActivo() {
+        return activo;
+    }
+
+    /**
+     * Obtiene las notas del alumno.
+     *
+     * @return array de notas
+     */
+    public final int[] getNotas() {
+        return notas;
+    }
+
+    /**
+     * Compara dos alumnos por su identificador.
+     *
+     * @param obj objeto que se desea comparar
+     * @return true si tienen el mismo identificador
+     */
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+    public final boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
         Alumno alumno = (Alumno) obj;
         return Objects.equals(id, alumno.id);
     }
-}
 
+    /**
+     * Calcula el código hash del alumno.
+     *
+     * @return código hash
+     */
+    @Override
+    public final int hashCode() {
+        return Objects.hash(id);
+    }
+}
