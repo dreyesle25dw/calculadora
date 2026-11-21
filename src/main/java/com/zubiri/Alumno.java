@@ -8,38 +8,45 @@ import java.util.Objects;
  */
 public class Alumno {
 
+    /** Identificador del alumno. */
     private String id;
+
+    /** Nombre del alumno. */
     private String nombre;
+
+    /** Estado del alumno. */
     private boolean activo;
+
+    /** Notas del alumno. */
     private int[] notas;
 
     /**
      * Construye un alumno.
      *
-     * @param id identificador del alumno
-     * @param nombre nombre del alumno
-     * @param activo estado del alumno
-     * @param notas notas del alumno
+     * @param nuevoId identificador del alumno
+     * @param nuevoNombre nombre del alumno
+     * @param estadoActivo estado del alumno
+     * @param nuevasNotas notas del alumno
      */
-    public Alumno(final String id, final String nombre,
-            final boolean activo, final int[] notas) {
-        this.id = id;
-        setNombre(nombre);
-        this.activo = activo;
-        this.notas = notas;
+    public Alumno(final String nuevoId, final String nuevoNombre,
+            final boolean estadoActivo, final int[] nuevasNotas) {
+        this.id = nuevoId;
+        setNombre(nuevoNombre);
+        this.activo = estadoActivo;
+        this.notas = nuevasNotas;
     }
 
     /**
      * Modifica el nombre del alumno.
      *
-     * @param nombre nuevo nombre
+     * @param nuevoNombre nuevo nombre
      */
-    public final void setNombre(final String nombre) {
-        if (nombre == null) {
+    public final void setNombre(final String nuevoNombre) {
+        if (nuevoNombre == null) {
             throw new IllegalArgumentException(
                     "El nombre no puede ser nulo (null)");
         }
-        this.nombre = nombre;
+        this.nombre = nuevoNombre;
     }
 
     /**
